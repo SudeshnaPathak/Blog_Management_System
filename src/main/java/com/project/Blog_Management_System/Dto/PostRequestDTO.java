@@ -30,10 +30,9 @@ public class PostRequestDTO {
     @JsonDeserialize(using = CustomHtmlSanitizationDeserializer.class)
     private String content;
 
-    @NotBlank
     @Pattern(regexp = "^[a-z0-9]+(?:-[a-z0-9]+)*$", message = "Slug must be lowercase alphanumeric with hyphens only")
     @Size(min = 2, max = 100)
-    private String categorySlug;
+    private String categorySlug = "uncategorised";
 
     private PostStatus status = PostStatus.DRAFT;
 
